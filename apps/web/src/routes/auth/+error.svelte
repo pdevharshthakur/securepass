@@ -3,10 +3,6 @@
 	import { invalidateAll } from '$app/navigation';
 	import { page } from '$app/state';
 	import { Button } from '$lib/components/ui/button';
-
-	function retry() {
-		void invalidateAll();
-	}
 </script>
 
 <svelte:head>
@@ -36,7 +32,7 @@
 		</div>
 
 		{#if page.status === 500}
-			<Button size="lg" onclick={retry}>
+			<Button size="lg" onclick={() => void invalidateAll()}>
 				<RefreshCwIcon data-icon="inline-start" />
 				Try again
 			</Button>
