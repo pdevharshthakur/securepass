@@ -22,6 +22,9 @@
     "format": {
       "cache": false
     },
+    "clean": {
+      "cache": false
+    },
     "lint": {
       "dependsOn": ["^lint"]
     },

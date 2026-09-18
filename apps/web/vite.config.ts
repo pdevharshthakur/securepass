@@ -22,5 +22,13 @@ export default defineConfig({
 				handleRenderingErrors: true
 			}
 		})
-	]
+	],
+	server: {
+		proxy: {
+			// Forward Better Auth + API calls to the Express server in dev so the
+			// browser always talks to a single origin (:5173). This keeps the
+			// session cookie on the web origin (same-site), avoiding CORS.
+			'/api': 'http://localhost:8000'
+		}
+	}
 });

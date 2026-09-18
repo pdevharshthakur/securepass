@@ -10,7 +10,6 @@ interface EncryptedPayload {
 	tag: string;
 	data: string;
 }
-
 const encryptionKey = Buffer.from(env.ENCRYPTION_KEY, 'base64');
 
 if (encryptionKey.length !== 32) {

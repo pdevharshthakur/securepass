@@ -11,7 +11,8 @@
     "db:start": "docker compose up -d",
     "db:stop": "docker compose down",
     "db:studio": "prisma studio",
-    "format": "prisma format"
+    "format": "prisma format",
+    "clean": "rm -rf node_modules generated"
   },
   "exports": {
     ".": "./src/index.ts"

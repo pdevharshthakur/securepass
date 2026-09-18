@@ -1,18 +1,21 @@
 import { addBodySchema } from '@packages/shared';
 import { error } from '@sveltejs/kit';
-import { form } from '$app/server';
-import { PUBLIC_API_URL } from '$app/env/public';
+import { form, getRequestEvent } from '$app/server';
+import { PRIVATE_API_URL } from '$app/env/private';
 
-const apiUrl = PUBLIC_API_URL.replace(/\/+$/, '');
+const apiUrl = PRIVATE_API_URL.replace(/\/+$/, '');
 
 export const addEntry = form(addBodySchema, async (data) => {
 	let response: Response;
 
 	try {
+		const event = getRequestEvent();
+
 		response = await fetch(`${apiUrl}/add`, {
 			method: 'POST',
 			headers: {
-				'content-type': 'application/json'
+				'content-type': 'application/json',
+				cookie: event.request.headers.get('cookie') ?? ''
 			},
 			body: JSON.stringify(data)
 		});

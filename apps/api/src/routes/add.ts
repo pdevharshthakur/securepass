@@ -13,7 +13,8 @@ addRouter.post('/add', async (req, res, next) => {
 			data: {
 				label: body.label,
 				encryptedUsername: encrypt(body.username),
-				encryptedPassword: encrypt(body.password)
+				encryptedPassword: encrypt(body.password),
+				userId: req.userId as string
 			}
 		});
 		res.status(201).json({

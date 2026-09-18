@@ -3,7 +3,8 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "format": "prettier --write --ignore-unknown --list-different ."
+    "format": "prettier --write --ignore-unknown --list-different .",
+    "clean": "rm -rf node_modules"
   },
   "exports": {
     ".": "./index.js"

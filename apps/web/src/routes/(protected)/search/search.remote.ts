@@ -1,18 +1,21 @@
 import { searchBodySchema, searchResponseSchema } from '@packages/shared';
 import { error } from '@sveltejs/kit';
-import { query } from '$app/server';
-import { PUBLIC_API_URL } from '$app/env/public';
+import { query, getRequestEvent } from '$app/server';
+import { PRIVATE_API_URL } from '$app/env/private';
 
-const apiUrl = PUBLIC_API_URL.replace(/\/+$/, '');
+const apiUrl = PRIVATE_API_URL.replace(/\/+$/, '');
 
 export const searchEntries = query(searchBodySchema, async (data) => {
 	let response: Response;
 
 	try {
+		const event = getRequestEvent();
+
 		response = await fetch(`${apiUrl}/search`, {
 			method: 'POST',
 			headers: {
-				'content-type': 'application/json'
+				'content-type': 'application/json',
+				cookie: event.request.headers.get('cookie') ?? ''
 			},
 			body: JSON.stringify(data)
 		});

@@ -3,7 +3,9 @@
 	"private": true,
 	"type": "module",
 	"scripts": {
-		"format": "prettier --write --ignore-unknown --list-different ."
+		"typecheck": "tsc --noEmit",
+		"format": "prettier --write --ignore-unknown --list-different .",
+		"clean": "rm -rf node_modules"
 	},
 	"devDependencies": {
 		"@packages/prettier-config": "workspace:*",

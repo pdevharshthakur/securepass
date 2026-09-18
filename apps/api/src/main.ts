@@ -1,5 +1,7 @@
 import { env } from './env.js';
 import { router } from './routes.js';
+import { toNodeHandler } from 'better-auth/node';
+import { auth } from '$lib/auth.js';
 import cors from 'cors';
 import express from 'express';
 import helmet from 'helmet';
@@ -9,8 +11,9 @@ const app = express();
 const corsOrigins = env.CORS_ORIGIN === '*' ? '*' : env.CORS_ORIGIN.split(',').map((s) => s.trim());
 
 app.use(helmet());
+app.all('/api/auth/*splat', toNodeHandler(auth));
 app.use(express.json());
-app.use(cors({ origin: corsOrigins }));
+app.use(cors({ origin: corsOrigins, credentials: true }));
 app.use(router);
 
 const server = app.listen(env.PORT, () => {

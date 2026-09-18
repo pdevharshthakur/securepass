@@ -11,6 +11,7 @@ searchRouter.post('/search', async (req, res, next) => {
 		const body = searchBodySchema.parse(req.body);
 		const searchResults = await prisma.credential.findMany({
 			where: {
+				userId: req.userId as string,
 				label: {
 					contains: body.label
 				}
