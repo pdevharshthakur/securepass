@@ -3,6 +3,7 @@
 	"private": true,
 	"type": "module",
 	"scripts": {
+		"typecheck": "tsc --noEmit",
 		"format": "prettier --write --ignore-unknown --list-different .",
 		"clean": "rm -rf node_modules"
 	},
