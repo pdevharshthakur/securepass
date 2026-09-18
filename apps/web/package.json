@@ -23,8 +23,8 @@
 	},
 	"devDependencies": {
 		"@fontsource/ibm-plex-mono": "5.3.0",
-		"@internationalized/date": "3.12.3",
-		"@lucide/svelte": "1.33.0",
+		"@internationalized/date": "3.12.4",
+		"@lucide/svelte": "1.39.0",
 		"@packages/eslint-config": "workspace:*",
 		"@packages/prettier-config": "workspace:*",
 		"@sveltejs/adapter-node": "5.5.7",
@@ -38,8 +38,8 @@
 		"eslint-plugin-svelte": "3.23.0",
 		"prettier-plugin-svelte": "4.1.1",
 		"prettier-plugin-tailwindcss": "0.8.1",
-		"shadcn-svelte": "1.5.0",
-		"svelte": "5.56.9",
+		"shadcn-svelte": "1.6.0",
+		"svelte": "5.57.0",
 		"svelte-check": "4.7.6",
 		"tailwind-merge": "3.6.0",
 		"tailwind-variants": "3.3.1",
@@ -54,7 +54,7 @@
 		"@packages/db": "workspace:*",
 		"@packages/shared": "workspace:*",
 		"@tanstack/svelte-form": "1.33.5",
-		"better-auth": "1.7.1",
-		"zod": "4.4.3"
+		"better-auth": "1.7.2",
+		"zod": "4.5.4"
 	}
 }
